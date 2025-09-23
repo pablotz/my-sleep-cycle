@@ -80,30 +80,63 @@ const HoursDialog = ({hour, meridiem, time}) => {
     <Dialog onOpenChange={(open) => open && calculateBedTimes()}>
         <form>
             <DialogTrigger asChild>
-                <Button className='mt-5 w-48 h-12 text-2xl' size="lg">
+                <Button className='mt-5 w-full sm:w-48 h-10 sm:h-12 text-xl sm:text-2xl' size="lg">
                     Find Best Time
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="w-[95vw] max-w-xs sm:max-w-sm md:max-w-md p-4 sm:p-6 border-4 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-md">
                 <DialogHeader>
-                    <DialogTitle className="text-2xl">
+                    <DialogTitle className="text-xl sm:text-2xl font-black">
                         {time === "wakeup" ? "When to go to bed" : "When to wake up"}
                     </DialogTitle>
                 </DialogHeader>
-                <DialogDescription className="text-lg">
+                <DialogDescription className="text-base sm:text-lg">
                     {time === "wakeup" ? (
-                        <p className="mb-2">To wake up at <span className="font-bold">{`${hour.slice(0,2)}:${hour.slice(2,4)} ${meridiem}`}</span>, you should try to fall asleep at one of the following times:</p>
+                        <p className="mb-4 font-bold">To wake up at <span className="text-lg">{`${hour.slice(0,2)}:${hour.slice(2,4)} ${meridiem}`}</span>, you should try to fall asleep at one of the following times:</p>
                     ) : (
-                        <p className="mb-2">If you go to bed at <span className="font-bold">{`${hour.slice(0,2)}:${hour.slice(2,4)} ${meridiem}`}</span>, you should try to wake up at one of the following times:</p>
+                        <p className="mb-4 font-bold">If you go to bed at <span className="text-lg">{`${hour.slice(0,2)}:${hour.slice(2,4)} ${meridiem}`}</span>, you should try to wake up at one of the following times:</p>
                     )}
-                    <div className="mt-4 space-y-2">
-                        {results.map((result, index) => (
-                            <div key={index} className={`flex justify-between ${result.minimum ? 'font-bold text-blue-600' : ''}`}>
-                                <span>{result.time}</span>
-                                <span>{result.hoursRest} of sleep</span>
+                    <div className="mt-4 space-y-3">
+                    {results.map((result, index) => (
+                    <div 
+                        key={index} 
+                        className={`
+                            p-3 rounded-md border-3
+                            translate-x-0 translate-y-0
+                            ${result.minimum 
+                                ? 'bg-yellow-300 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]' 
+                                : 'bg-blue-300 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                            }
+                            hover:-translate-y-0.5 hover:-translate-x-0.5 
+                            hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]
+                            transition-all cursor-pointer
+                        `}
+                    >
+                        <div className="flex justify-between items-center gap-3">
+                            <div className="flex flex-col">
+                                <span className="text-xl font-black text-black">
+                                    {result.time}
+                                </span>
+                                <span className="text-xs font-bold text-black">
+                                    {result.minimum ? 'Minimum recommended' : 'Optimal sleep time'}
+                                </span>
                             </div>
-                        ))}
+                            <div className={`
+                                flex items-center justify-center
+                                w-14 h-14 rounded-md border-3 border-black
+                                ${result.minimum 
+                                    ? 'bg-pink-300' 
+                                    : 'bg-green-300'
+                                }
+                                shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                            `}>
+                                <span className="text-lg font-black text-black">{result.hoursRest}</span>
+                            </div>
+                        </div>
                     </div>
+                ))}
+                </div>
+
                 </DialogDescription>
                 <DialogFooter>
                     <DialogClose asChild>

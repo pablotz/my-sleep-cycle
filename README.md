@@ -19,7 +19,8 @@ A modern React web application designed to help you optimize your sleep schedule
 - **Build Tool**: Vite for fast development and building
 - **Styling**: Tailwind CSS v4 with custom configurations
 - **UI Components**: Shadcn/ui component library
-- **Icons**: Lucide React for consistent iconography
+    - **Neobrutalism**: [Neobrutalism Link](https://www.neobrutalism.dev/docs) 
+- **Icons**: Lucide React for consistent iconography ([Licide](https://lucide.dev/))
 
 ## 🎯 How It Works
 
@@ -36,8 +37,6 @@ A modern React web application designed to help you optimize your sleep schedule
 3. Choose AM or PM using the toggle tabs
 4. Click "Find Best Time" to see recommendations
 5. View results in a modal showing different sleep duration options
-
-## 🎨 UI Components
 
 ## 📝 License
 
