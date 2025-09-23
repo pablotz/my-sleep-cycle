@@ -2,6 +2,13 @@
 
 A modern React web application designed to help you optimize your sleep schedule by calculating the best bedtime and wake-up times based on natural sleep cycles.
 
+## 🌐 [Live Preview](https://my-sleep-cycle.vercel.app/)
+
+<img width="643" height="1107" alt="Browser view" src="https://github.com/user-attachments/assets/8f3c079a-af35-465b-aae7-1ee65cc05866" />
+
+<img width="513" height="649" alt="Sleep times view" src="https://github.com/user-attachments/assets/6177891a-f20c-464c-abde-c56f764a8695" />
+
+
 ## 🚀 Features
 
 - **Smart Time Calculation**: Calculate optimal bedtime or wake-up times based on 90-minute sleep cycles
